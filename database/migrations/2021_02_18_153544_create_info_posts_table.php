@@ -17,7 +17,7 @@ class CreateInfoPostsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('post_id'); // chiave esterna riferita alla tabella post(tabella principale)
             $table->string('post_status', 30); //pubblic-private/draft
-            $table->string('comment_status'); //pubblic-private/draft
+            $table->string('comment_status'); //open-private/closed
             // $table->timestamps(); commetata per disattivarla guarda model InfoPost
             
 

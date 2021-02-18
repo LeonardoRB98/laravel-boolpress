@@ -12,4 +12,12 @@ class Post extends Model
         'text_article',
         'pubblication_date',
     ];
+
+    // relazioni database
+
+    // serve a recupare l' InfoPost dal Post
+    public function infoPost() {
+        return $this->hasOne('App\InfoPost');// has one relazione one to one , quindi 1 Post ha 1 InfoPost
+    }
 }
+
