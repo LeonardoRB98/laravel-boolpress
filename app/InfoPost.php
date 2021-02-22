@@ -3,9 +3,14 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use App\Post;
 class InfoPost extends Model
 {   
+    protected $fillable = [
+        'post_id',
+        'post_status',
+        'comment_status'
+    ];
     // disattivo i timestams per la tabella infoposts
     public $timestamps = false;
 

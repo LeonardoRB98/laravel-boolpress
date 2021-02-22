@@ -20,4 +20,7 @@ Route::get('/', function () {
 Route::resource('posts', 'PostController');
 
 // frot end
-Route::get('/blog/{slug}', 'BlogController@show');
+Route::get('/blog/{slug}', 'BlogController@show')->name('post');
+
+// rotta creazione nuovo commento metodo post perché è un form
+Route::post('/blog/{id}/comment', 'BlogController@addComment')->name('add-comment'); // name('') = nome rotta

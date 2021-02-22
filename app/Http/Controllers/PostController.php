@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\InfoPost;
+use Illuminate\Support\Str;
+
+
 
 class PostController extends Controller
 {
@@ -26,7 +30,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('posts.create');
     }
 
     /**
@@ -36,8 +40,21 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   
+        $data = $request->all();
+        $data["slug"] = Str::of($data["title"]);
+        // dd($data);
+        $newPost = new Post();
+        $newPost->fill($data);
+        $newPost->save();
+
+        $data["post_id"] = $newPost->id;
+        $infoPost = new InfoPost();
+        $infoPost->fill($data);
+        $infoPost->save();
+
+        return redirect()->route('posts.index');
+        
     }
 
     /**

@@ -9,6 +9,7 @@ class Post extends Model
     protected $fillable = [
         'title',
         'author',
+        'slug',
         'text_article',
         'pubblication_date',
     ];
