@@ -16,8 +16,9 @@ class Post extends Model
     // relazioni database
 
     // serve a recupare l' InfoPost dal Post
-    public function infoPost() {
+    public function infoPost() { //restituisce la relazione con dato HasOne, e crea una nuova proprità con il nome del metodo con all'interno gli attributi
         return $this->hasOne('App\InfoPost');// has one relazione one to one , quindi 1 Post ha 1 InfoPost
+        // per recuperare un attributo della tabella InfoPost basta scrivere $post->infopost->nome_attributo
     }
 }
 

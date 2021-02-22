@@ -14,5 +14,6 @@ class InfoPost extends Model
     public function post() {
         // $this si riferisce ad Infopost
         return $this->belongTo('App\Post'); //la tabella secondaria avra sempre il belong to perché appartiene a quella primaria Post
+        
     }
 }
