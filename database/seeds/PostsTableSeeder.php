@@ -5,6 +5,7 @@ use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
 //aggiungo model Post
 use App\Post;
+use Illuminate\Support\Str;
 
 class PostsTableSeeder extends Seeder
 {
@@ -20,6 +21,7 @@ class PostsTableSeeder extends Seeder
             $newPost = new Post();
             //associo dati casuali con faker
             $newPost->title = $faker->sentence(3);
+            $newPost->slug = Str::slug($newPost->title);
             $newPost->author = $faker->name;
             $newPost->text_article = $faker->text(3000);
             $newPost->pubblication_date = $faker->date();

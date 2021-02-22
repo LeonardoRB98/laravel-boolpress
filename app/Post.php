@@ -20,5 +20,9 @@ class Post extends Model
         return $this->hasOne('App\InfoPost');// has one relazione one to one , quindi 1 Post ha 1 InfoPost
         // per recuperare un attributo della tabella InfoPost basta scrivere $post->infopost->nome_attributo
     }
+    public function comments() {
+        // collega il post ai commenti
+        return $this->hasMany('App\Comment');
+    }
 }
 

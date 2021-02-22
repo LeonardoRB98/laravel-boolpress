@@ -22,9 +22,10 @@
                     <td>{{ $post->pubblication_date }}</td>
                 <td>{{ $post->infoPost->post_status }}</td>
                 </tr>
-            </tbody>
+            </tbody>    
         </table>
     </div>
+    
 @endsection
 
 @section('footer-content')
