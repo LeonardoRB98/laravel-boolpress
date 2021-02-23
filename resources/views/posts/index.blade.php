@@ -24,6 +24,13 @@
                 <td>{{ $post->infoPost->post_status }}</td>
                 <td><a class="btn btn-primary" href="{{route('posts.show', $post)}}">dettagli</a></td>
                 <td><a class="btn btn-primary" href="{{route('posts.edit', $post)}}">Modifica</a></td>
+                <td>
+                    <form action="{{route('posts.destroy', $post)}}" method="post">
+                        @csrf
+                        @method("delete")
+                        <button class="btn btn-danger">Elimina</button>
+                    </form>
+                </td>
                 </tr>
                 @endforeach
             </tbody>

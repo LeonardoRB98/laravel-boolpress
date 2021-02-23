@@ -24,7 +24,8 @@ class CreateInfoPostsTable extends Migration
             // relazione database
             $table->foreign('post_id') // chiave esterna di nome post_id
             ->references('id') //  la ciave esterna post_id si riferisce alla colonna id
-            ->on('posts'); // nella tabella posts
+            ->on('posts')
+            ->onDelete('cascade'); // nella tabella posts
         });
     }
 

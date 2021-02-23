@@ -24,7 +24,8 @@ class CreateCommentsTable extends Migration
             // Relazioni database
             $table->foreign('post_id')
             ->references('id')
-            ->on('posts');
+            ->on('posts')
+            ->onDelete('cascade');
         });
     }
 

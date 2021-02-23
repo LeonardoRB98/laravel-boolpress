@@ -42,7 +42,7 @@
                 </div>
                 <div class="form-group">
                     <label for="text_article">Testo</label>
-                    <textarea name="text_article" class="form-control" id="text_article" rows="8">{{ $post->text_artilce }}"</textarea>
+                    <textarea name="text_article" class="form-control" id="text_article" rows="8">{{$post->text_article}}</textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Salva</button>
                 <td><a class="btn btn-secondary float-right" href="{{route('posts.index')}}">Home</a></td>
@@ -50,6 +50,6 @@
     </section>
 @endsection
 
-@section('footer-content')
+@section('footer-content') 
 
 @endsection

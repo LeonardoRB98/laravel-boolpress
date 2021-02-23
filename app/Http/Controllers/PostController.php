@@ -41,6 +41,14 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {   
+        $validatedData = $request->validate([
+            'title' => 'required',
+            'author' => 'required',
+            'text_article' => 'required',
+            'post_status' => 'required',
+            'post_comment' => 'required',
+        ]);
+
         $data = $request->all();
         $data["slug"] = Str::of($data["title"]);
         // dd($data);
@@ -90,10 +98,15 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Post $post)
-    {
+    {   
+        
+        $infoPost = InfoPost::where('post_id', $post->id)->first();
         $data = $request->all();
+        $data["slug"] = Str::slug($data["title"]);
+        $data['post_id'] = $post->id;
         // dd($data);
         $post->update($data);
+        $infoPost->update($data);
         return redirect()->route('posts.index');
     }
 
@@ -103,8 +116,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        return redirect()->route('posts.index');
     }
 }
