@@ -9,8 +9,8 @@
 
 @section('main-content')
     <section class="container">
-        <form action="{{ route('posts.update')}}" method="POST">
-                @method('POST')
+        <form action="{{ route('posts.update', $post->id)}}" method="POST">
+                @method('PUT')
                 @csrf
                 <div class="form-group">
                     <label for="title">Titolo</label>
@@ -27,17 +27,17 @@
                 <div class="form-group">
                     <label for="post_status">post status</label>
                     <select name="post_status" id="post_status">
-                        <option value="draft">Draft</option>
-                        <option value="private">Private</option>
-                        <option value="public">Public</option>
+                        <option value="draft" @if ($post->infoPost->post_status == 'draft') selected @endif>Draft</option>
+                        <option value="private" @if ($post->infoPost->post_status == 'private') selected @endif >Private</option>
+                        <option value="public" @if ($post->infoPost->post_status == 'public') selected @endif >Public</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="comment_status">post status</label>
                     <select name="comment_status" id="comment_status">
-                        <option value="open">Open</option>
-                        <option value="closed">Closed</option>
-                        <option value="private">Private</option>
+                        <option value="open" @if ($post->infoPost->post_status == 'open') selected @endif >Open</option>
+                        <option value="closed" @if ($post->infoPost->post_status == 'closed') selected @endif >Closed</option>
+                        <option value="private" @if ($post->infoPost->post_status == 'private') selected @endif >Private</option>
                     </select>
                 </div>
                 <div class="form-group">
