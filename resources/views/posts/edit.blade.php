@@ -2,27 +2,27 @@
 
 @section('header-content')
     <div class="container">
-        <h1>Aggiungi un nuovo post</h1> 
+        <h1>modifica il post</h1> 
     </div>
 
 @endsection
 
 @section('main-content')
     <section class="container">
-        <form action="{{ route('posts.store') }}" method="POST">
+        <form action="{{ route('posts.update')}}" method="POST">
                 @method('POST')
                 @csrf
                 <div class="form-group">
                     <label for="title">Titolo</label>
-                    <input type="text" name="title" class="form-control" placeholder="insersci il titolo">
+                    <input type="text" name="title" class="form-control" placeholder="insersci il titolo" value="{{ $post->title }}">
                 </div>
                 <div class="form-group">
                     <label for="author">Autore</label>
-                    <input type="text" name="author" class="form-control" placeholder="inserisce l'autore">
+                    <input type="text" name="author" class="form-control" value="{{ $post->author }}" placeholder="inserisce l'autore">
                 </div>
                 <div class="form-group">
                     <label for="pubblication_date">data di pubblicazione</label>
-                    <input type="date" name="pubblication_date" class="form-control">
+                    <input type="date" name="pubblication_date" value="{{ $post->pubblication_date }}" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="post_status">post status</label>
@@ -42,7 +42,7 @@
                 </div>
                 <div class="form-group">
                     <label for="text_article">Testo</label>
-                    <textarea name="text_article" class="form-control" id="text_article" rows="8"></textarea>
+                    <textarea name="text_article" class="form-control" id="text_article" rows="8">{{ $post->text_artilce }}"</textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Salva</button>
                 <td><a class="btn btn-secondary float-right" href="{{route('posts.index')}}">Home</a></td>

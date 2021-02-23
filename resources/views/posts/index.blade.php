@@ -23,10 +23,12 @@
                     <td>{{ $post->pubblication_date }}</td>
                 <td>{{ $post->infoPost->post_status }}</td>
                 <td><a class="btn btn-primary" href="{{route('posts.show', $post)}}">dettagli</a></td>
+                <td><a class="btn btn-primary" href="{{route('posts.edit', $post)}}">Modifica</a></td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
+        <a class="btn btn-secondary" href="{{route('posts.create')}}">Aggiungi Post</a>
     </div>
 @endsection
 
